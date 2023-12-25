@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdmrwmjesfx8o"]
+[gd_scene load_steps=7 format=3 uid="uid://bdmrwmjesfx8o"]
 
+[ext_resource type="Script" path="res://level_base/level_base.gd" id="1_gjrkq"]
 [ext_resource type="Texture2D" uid="uid://bpiv1pl74okud" path="res://assets/tiles/Terrain (16x16).png" id="1_jpale"]
 [ext_resource type="PackedScene" uid="uid://cph6xskm1anvs" path="res://player_cam/player_cam.tscn" id="2_6wir8"]
 [ext_resource type="PackedScene" uid="uid://blvkdxh18qnmw" path="res://player/player.tscn" id="3_mxm1x"]
@@ -155,6 +156,7 @@ texture = ExtResource("1_jpale")
 sources/0 = SubResource("TileSetAtlasSource_dkkex")
 
 [node name="LevelBase" type="Node2D"]
+script = ExtResource("1_gjrkq")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_s4m5k")
