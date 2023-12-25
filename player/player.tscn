@@ -141,3 +141,5 @@ theme_override_font_sizes/font_size = 11
 text = "aaaaaaaaaa
 aaaaaaaaaa
 aaaaaaaaaa"
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
