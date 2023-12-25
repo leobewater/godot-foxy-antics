@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://blvkdxh18qnmw"]
+[gd_scene load_steps=7 format=3 uid="uid://blvkdxh18qnmw"]
 
 [ext_resource type="Texture2D" uid="uid://b3anf2a52axmn" path="res://assets/player/player.png" id="1_dmxuy"]
 
@@ -37,10 +37,28 @@ tracks/0/keys = {
 "values": [13]
 }
 
+[sub_resource type="Animation" id="Animation_di1jh"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2oqr6"]
 _data = {
 "RESET": SubResource("Animation_5og5v"),
-"idle": SubResource("Animation_ocjpa")
+"idle": SubResource("Animation_ocjpa"),
+"run": SubResource("Animation_di1jh")
 }
 
 [node name="Player" type="CharacterBody2D"]
