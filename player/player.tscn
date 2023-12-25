@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://blvkdxh18qnmw"]
+[gd_scene load_steps=11 format=3 uid="uid://blvkdxh18qnmw"]
 
+[ext_resource type="Script" path="res://player/player.gd" id="1_5glad"]
 [ext_resource type="Texture2D" uid="uid://b3anf2a52axmn" path="res://assets/player/player.png" id="1_dmxuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hiaxe"]
@@ -114,6 +115,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5glad")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_dmxuy")
