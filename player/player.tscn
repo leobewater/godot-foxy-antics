@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://blvkdxh18qnmw"]
+[gd_scene load_steps=10 format=3 uid="uid://blvkdxh18qnmw"]
 
 [ext_resource type="Texture2D" uid="uid://b3anf2a52axmn" path="res://assets/player/player.png" id="1_dmxuy"]
 
@@ -86,10 +86,28 @@ tracks/0/keys = {
 "values": [18]
 }
 
+[sub_resource type="Animation" id="Animation_cebn8"]
+resource_name = "hurt"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 12]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2oqr6"]
 _data = {
 "RESET": SubResource("Animation_5og5v"),
 "fall": SubResource("Animation_0dw21"),
+"hurt": SubResource("Animation_cebn8"),
 "idle": SubResource("Animation_ocjpa"),
 "jump": SubResource("Animation_0cmx3"),
 "run": SubResource("Animation_di1jh")
