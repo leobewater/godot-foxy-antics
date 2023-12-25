@@ -9,6 +9,10 @@ class_name Player
 
 
 const GRAVITY: float = 1000.0
+const RUN_SPEED: float = 120.0
+const MAX_FALL: float = 400.0
+const HURT_TIME: float = 0.3
+const JUMP_VELOCITY: float = -400.0
 
 
 func _ready():
@@ -21,3 +25,7 @@ func _physics_process(delta):
 		velocity.y += GRAVITY * delta
 
 	move_and_slide()
+
+
+func get_input() -> void:
+	velocity.x = 0
