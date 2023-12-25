@@ -58,6 +58,7 @@ func get_input() -> void:
 	
 	if Input.is_action_just_pressed('jump') and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		# play jumping sound
 		SoundManager.play_clip(sound_player, SoundManager.SOUND_JUMP)
 		
 	# limit the player y velocity 
@@ -85,6 +86,7 @@ func set_state(new_state: PLAYER_STATE) -> void:
 	if new_state == _state:
 		return
 		
+	# play landing sound
 	if _state == PLAYER_STATE.FALL:
 		if new_state == PLAYER_STATE.IDLE or new_state == PLAYER_STATE.RUN:
 			SoundManager.play_clip(sound_player, SoundManager.SOUND_LAND)

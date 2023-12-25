@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SingalManager="*res://singletons/singal_manager.gd"
+SignalManager="*res://singletons/signal_manager.gd"
 GameManager="*res://singletons/game_manager.gd"
 SoundManager="*res://singletons/sound_manager.gd"
 
