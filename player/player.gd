@@ -8,7 +8,7 @@ class_name Player
 @onready var animation_player = $AnimationPlayer
 
 
-const GRAVITY: float = 300.0
+const GRAVITY: float = 1000.0
 
 
 func _ready():
