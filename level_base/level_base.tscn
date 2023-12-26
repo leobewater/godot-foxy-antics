@@ -538,4 +538,4 @@ zoom = Vector2(2, 2)
 position = Vector2(209, -35)
 
 [node name="Boss" parent="." instance=ExtResource("5_b5ann")]
-position = Vector2(429, -12)
+position = Vector2(414, -24)
