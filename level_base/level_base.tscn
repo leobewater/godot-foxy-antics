@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdmrwmjesfx8o"]
+[gd_scene load_steps=10 format=3 uid="uid://bdmrwmjesfx8o"]
 
 [ext_resource type="Script" path="res://level_base/level_base.gd" id="1_gjrkq"]
 [ext_resource type="Texture2D" uid="uid://bpiv1pl74okud" path="res://assets/tiles/Terrain (16x16).png" id="1_jpale"]
 [ext_resource type="PackedScene" uid="uid://cph6xskm1anvs" path="res://player_cam/player_cam.tscn" id="2_6wir8"]
+[ext_resource type="PackedScene" uid="uid://blvkdxh18qnmw" path="res://player/player.tscn" id="3_mxm1x"]
+[ext_resource type="PackedScene" uid="uid://dg38qoh7ar5f1" path="res://enemies/snail/snail.tscn" id="5_ef5dn"]
+[ext_resource type="PackedScene" uid="uid://bvutlmtjoaubx" path="res://enemies/frog/frog.tscn" id="6_grcal"]
+[ext_resource type="PackedScene" uid="uid://dx52pjqynsxmi" path="res://enemies/eagle/eagle.tscn" id="7_n10da"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dkkex"]
 texture = ExtResource("1_jpale")
@@ -531,3 +535,15 @@ layer_0/tile_data = PackedInt32Array(-4, 458752, 0, -3, 458752, 0, -2, 458752, 0
 [node name="PlayerCam" parent="." instance=ExtResource("2_6wir8")]
 position = Vector2(256, -150)
 zoom = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("3_mxm1x")]
+position = Vector2(209, -35)
+
+[node name="Snail" parent="." instance=ExtResource("5_ef5dn")]
+position = Vector2(287, -30)
+
+[node name="Frog" parent="." instance=ExtResource("6_grcal")]
+position = Vector2(433, -30)
+
+[node name="Eagle" parent="." instance=ExtResource("7_n10da")]
+position = Vector2(314, -148)
