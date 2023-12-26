@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://blvkdxh18qnmw"]
+[gd_scene load_steps=16 format=3 uid="uid://blvkdxh18qnmw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_5glad"]
 [ext_resource type="Texture2D" uid="uid://b3anf2a52axmn" path="res://assets/player/player.png" id="1_dmxuy"]
@@ -119,6 +119,44 @@ _data = {
 radius = 6.0
 height = 18.0
 
+[sub_resource type="Animation" id="Animation_00ssh"]
+resource_name = "invincible"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gblvi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pube0"]
+_data = {
+"RESET": SubResource("Animation_gblvi"),
+"invincible": SubResource("Animation_00ssh")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
 script = ExtResource("1_5glad")
@@ -162,4 +200,14 @@ shape = SubResource("CapsuleShape2D_ivgkx")
 speed = 200.0
 shoot_delay = 1.0
 
+[node name="AnimationPlayerInvincible" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pube0")
+}
+
+[node name="InvincibleTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]

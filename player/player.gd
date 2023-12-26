@@ -9,7 +9,8 @@ class_name Player
 @onready var animation_player = $AnimationPlayer
 @onready var sound_player = $SoundPlayer
 @onready var shooter = $Shooter
-
+@onready var animation_player_invincible = $AnimationPlayerInvincible
+@onready var invincible_timer = $InvincibleTimer
 
 
 const GRAVITY: float = 1000.0
@@ -21,6 +22,7 @@ const JUMP_VELOCITY: float = -400.0
 enum PLAYER_STATE {	IDLE, RUN, JUMP, FALL, HURT }
 
 var _state = PLAYER_STATE.IDLE
+var _invincible: bool = false
 
 
 func _ready():
@@ -43,8 +45,9 @@ func _physics_process(delta):
 
 
 func update_debug_label() -> void:
-	debug_label.text = "is_on_floor: %s\n%s\n%.0f,%.0f" % [
+	debug_label.text = "is_on_floor: %s\n_invincible: %s\n%s\n%.0f,%.0f" % [
 		is_on_floor(),
+		_invincible,
 		PLAYER_STATE.keys()[_state],
 		velocity.x,
 		velocity.y
@@ -117,6 +120,27 @@ func set_state(new_state: PLAYER_STATE) -> void:
 			animation_player.play("fall")
 
 
-# when hit box collides with enemies
+# player becoming invincible for X seconds after hit by enemies
+func go_invincible() -> void:
+	_invincible = true
+	animation_player_invincible.play('invincible')
+	invincible_timer.start()
+
+
+func apply_hit() -> void:
+	if _invincible == true:
+		return
+		
+	go_invincible()
+	SoundManager.play_clip(sound_player, SoundManager.SOUND_DAMAGE)
+
+
+# when hit box collides with enemies or enemy bullets
 func _on_hit_box_area_entered(area):
 	print("Player HitBox hit by:", area)
+	apply_hit()
+
+
+func _on_invincible_timer_timeout():
+	_invincible = false
+	animation_player_invincible.stop()
