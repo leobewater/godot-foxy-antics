@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvutlmtjoaubx"]
+[gd_scene load_steps=13 format=3 uid="uid://bvutlmtjoaubx"]
 
 [ext_resource type="PackedScene" uid="uid://tn164k3xtu6q" path="res://enemies/enemy_base/enemy_base.tscn" id="1_4c50t"]
 [ext_resource type="Script" path="res://enemies/frog/frog.gd" id="2_qnc8b"]
@@ -66,12 +66,19 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wg83"]
+size = Vector2(17, 13)
+
 [node name="Frog" instance=ExtResource("1_4c50t")]
 script = ExtResource("2_qnc8b")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_tbb3r")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_0wg83")
+
+[node name="JumpTimer" type="Timer" parent="." index="3"]
