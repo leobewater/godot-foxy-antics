@@ -19,7 +19,7 @@ const RUN_SPEED: float = 120.0
 const MAX_FALL: float = 400.0
 const HURT_TIME: float = 0.3
 const JUMP_VELOCITY: float = -400.0
-const HURT_JUMP_VELOCITY: float = -100.0
+const HURT_JUMP_VELOCITY: Vector2 = Vector2(0, -150.0)
 
 
 enum PLAYER_STATE {	IDLE, RUN, JUMP, FALL, HURT }
@@ -66,7 +66,7 @@ func shoot() -> void:
 	
 	
 func get_input() -> void:
-	# ignore input when player is hurt
+	# ignore input while player is hurt
 	if _state == PLAYER_STATE.HURT:
 		return
 	
@@ -131,7 +131,7 @@ func set_state(new_state: PLAYER_STATE) -> void:
 func apply_hurt_jump() -> void:
 	set_state(PLAYER_STATE.HURT)
 	animation_player.play('hurt')
-	velocity.y = HURT_JUMP_VELOCITY
+	velocity = HURT_JUMP_VELOCITY
 	hurt_timer.start()
 
 
@@ -163,4 +163,5 @@ func _on_invincible_timer_timeout():
 
 
 func _on_hurt_timer_timeout():
+	# after hurt timer is done, return player to idle state
 	set_state(PLAYER_STATE.IDLE)
