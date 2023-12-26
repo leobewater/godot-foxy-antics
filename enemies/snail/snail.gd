@@ -20,9 +20,10 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
-	# check if snail hits wall or ray cast not hitting empty ground
-	if is_on_wall()  or !floor_detection.is_colliding():
-		flip_me()
+	# check if snail hits wall or ray cast hitting empty ground
+	if is_on_floor():
+		if is_on_wall()  or !floor_detection.is_colliding():
+			flip_me()
 		
 
 func flip_me() -> void: 
