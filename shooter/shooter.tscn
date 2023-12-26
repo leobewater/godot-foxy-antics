@@ -5,7 +5,7 @@
 [node name="Shooter" type="Node2D"]
 script = ExtResource("1_wvey5")
 
-[node name="Sound" type="AudioStreamPlayer" parent="."]
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
 
 [node name="ShootTimer" type="Timer" parent="."]
 

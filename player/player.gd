@@ -8,6 +8,7 @@ class_name Player
 @onready var sprite_2d = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var sound_player = $SoundPlayer
+@onready var shooter = $Shooter
 
 
 
@@ -38,8 +39,7 @@ func _physics_process(delta):
 	
 	# shoot bullets
 	if Input.is_action_just_pressed("shoot"):
-
-		pass
+		shoot()
 
 
 func update_debug_label() -> void:
@@ -49,6 +49,13 @@ func update_debug_label() -> void:
 		velocity.x,
 		velocity.y
 	]
+	
+	
+func shoot() -> void:
+	if sprite_2d.flip_h == true:
+		shooter.shoot(Vector2.LEFT)
+	else:
+		shooter.shoot(Vector2.RIGHT)
 	
 	
 func get_input() -> void:

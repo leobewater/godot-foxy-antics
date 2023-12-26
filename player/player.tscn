@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://blvkdxh18qnmw"]
+[gd_scene load_steps=13 format=3 uid="uid://blvkdxh18qnmw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_5glad"]
 [ext_resource type="Texture2D" uid="uid://b3anf2a52axmn" path="res://assets/player/player.png" id="1_dmxuy"]
+[ext_resource type="PackedScene" uid="uid://tlsuo1h6vaiy" path="res://shooter/shooter.tscn" id="3_81mqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hiaxe"]
 size = Vector2(10, 19)
@@ -156,5 +157,9 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_ivgkx")
+
+[node name="Shooter" parent="." instance=ExtResource("3_81mqn")]
+speed = 200.0
+shoot_delay = 1.0
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
