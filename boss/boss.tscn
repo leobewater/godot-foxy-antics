@@ -254,6 +254,7 @@ graph_offset = Vector2(23.1886, -6)
 
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_vlfyu")
+lives = 5
 
 [node name="Visual" type="Node2D" parent="."]
 modulate = Color(0, 0, 0, 1)

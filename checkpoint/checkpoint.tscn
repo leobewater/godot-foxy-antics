@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1kicnofeicgx"]
+
+[ext_resource type="Texture2D" uid="uid://bqieeu41rb32r" path="res://assets/items/checkpoint.png" id="1_f4foj"]
+
+[node name="Checkpoint" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f4foj")
+hframes = 26
+vframes = 3
+frame = 26
