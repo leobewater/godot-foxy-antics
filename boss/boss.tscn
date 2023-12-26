@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3scehht213f6"]
+[gd_scene load_steps=12 format=3 uid="uid://d3scehht213f6"]
 
 [ext_resource type="Texture2D" uid="uid://b70p70o3nbdy7" path="res://assets/enemies/boss/boss.png" id="1_ksgll"]
 
@@ -185,6 +185,8 @@ _data = {
 "pulse": SubResource("Animation_lmx35")
 }
 
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_187wd"]
+
 [node name="Boss" type="Node2D"]
 
 [node name="Visual" type="Node2D" parent="."]
@@ -215,3 +217,6 @@ libraries = {
 "": SubResource("AnimationLibrary_u6xug")
 }
 autoplay = "arrive"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_187wd")
