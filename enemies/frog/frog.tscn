@@ -24,11 +24,11 @@ region = Rect2(105, 0, 35, 32)
 atlas = ExtResource("3_b510o")
 region = Rect2(140, 0, 35, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5phw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgc4r"]
 atlas = ExtResource("3_b510o")
 region = Rect2(175, 0, 35, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s7ne2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw353"]
 atlas = ExtResource("3_b510o")
 region = Rect2(210, 0, 35, 32)
 
@@ -47,18 +47,23 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yr38p")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_jlow5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o5phw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s7ne2")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgc4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw353")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 2.0
 }]
 
 [node name="Frog" instance=ExtResource("1_4c50t")]
@@ -66,3 +71,7 @@ script = ExtResource("2_qnc8b")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_tbb3r")
+animation = &"jump"
+autoplay = "idle"
+frame = 1
+frame_progress = 1.0
