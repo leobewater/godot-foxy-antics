@@ -40,3 +40,10 @@ func kill_me() -> void:
 
 func _on_life_timer_timeout():
 	kill_me()
+
+
+# fruit collision collided
+func _on_area_entered(area):
+	print("Pickup collected")
+	SignalManager.on_pickup_hit.emit(POINTS)
+	kill_me()
