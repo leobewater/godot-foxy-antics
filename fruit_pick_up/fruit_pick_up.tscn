@@ -1,6 +1,7 @@
-[gd_scene load_steps=75 format=3 uid="uid://d0cxk0pa4l47o"]
+[gd_scene load_steps=76 format=3 uid="uid://d0cxk0pa4l47o"]
 
 [ext_resource type="Texture2D" uid="uid://e8anxbc4nfy0" path="res://assets/items/Kiwi.png" id="1_hx8ow"]
+[ext_resource type="Script" path="res://fruit_pick_up/fruit_pick_up.gd" id="1_j0kyl"]
 [ext_resource type="Texture2D" uid="uid://v18punrdo8qc" path="res://assets/items/Bananas.png" id="2_gav71"]
 [ext_resource type="Texture2D" uid="uid://c1gbwtneya3m5" path="res://assets/items/Cherries.png" id="2_kybil"]
 [ext_resource type="Texture2D" uid="uid://bae57x2sx8bgw" path="res://assets/items/Melon.png" id="4_qbxut"]
@@ -509,6 +510,7 @@ animations = [{
 [node name="FruitPickUp" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("1_j0kyl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2tl6u")
@@ -521,3 +523,5 @@ shape = SubResource("CircleShape2D_k8wct")
 wait_time = 4.0
 one_shot = true
 autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
