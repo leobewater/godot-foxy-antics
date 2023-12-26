@@ -1,8 +1,10 @@
 extends Area2D
 
+
 var _direction: Vector2 = Vector2.RIGHT
 var _life_span: float = 20.0 # 20s life span
 var _life_time: float = 0.0
+
 
 func _ready():
 	pass # Replace with function body.
@@ -24,6 +26,6 @@ func check_expired(delta: float) -> void:
 		queue_free()
 
 
-# when bullet hits another area2d, remove it
+# when bullet hits enemy/player hitbox based on the mask setting then remove itself
 func _on_area_entered(area):
 	queue_free()

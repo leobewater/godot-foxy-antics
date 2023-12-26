@@ -38,6 +38,7 @@ func die():
 		
 	_dying = true
 	SignalManager.on_enemy_hit.emit(points, global_position)
+	ObjectMaker.create_explosion(global_position)
 	set_physics_process(false)
 	hide()
 	queue_free()
