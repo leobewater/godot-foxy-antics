@@ -38,7 +38,7 @@ func _physics_process(delta):
 	
 	# shoot bullets
 	if Input.is_action_just_pressed("shoot"):
-		#ObjectMaker.create_bullet(50.0, Vector2.RIGHT, global_position, 20.0, ObjectMaker.BULLET_KEY.PLAYER)
+
 		pass
 
 
