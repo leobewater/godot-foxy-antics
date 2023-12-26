@@ -541,4 +541,4 @@ position = Vector2(465, -195)
 position = Vector2(666, -39)
 
 [node name="Frog" parent="." instance=ExtResource("6_grcal")]
-position = Vector2(705, -287)
+position = Vector2(637, -288)
