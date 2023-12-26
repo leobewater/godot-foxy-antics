@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://d0cxk0pa4l47o"]
+[gd_scene load_steps=75 format=3 uid="uid://d0cxk0pa4l47o"]
 
 [ext_resource type="Texture2D" uid="uid://e8anxbc4nfy0" path="res://assets/items/Kiwi.png" id="1_hx8ow"]
 [ext_resource type="Texture2D" uid="uid://v18punrdo8qc" path="res://assets/items/Bananas.png" id="2_gav71"]
@@ -504,8 +504,20 @@ animations = [{
 "speed": 14.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k8wct"]
+
 [node name="FruitPickUp" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2tl6u")
-animation = &"cherry"
+animation = &"banana"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k8wct")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
