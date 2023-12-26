@@ -18,6 +18,7 @@ var _dying: bool = false
 
 
 func _ready():
+	print("ready base")
 	_player_ref = get_tree().get_nodes_in_group(GameManager.GROUP_PLAYER)[0]
 
 

@@ -6,7 +6,7 @@ extends EnemyBase
 
 
 func _ready():
-	pass
+	super._ready()
 
 
 func _physics_process(delta):

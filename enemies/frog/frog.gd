@@ -14,8 +14,8 @@ var _seen_player: bool = false
 
 
 func _ready():
-	jump_timer.wait_time = randf_range(JUMP_WAIT_RANGE.x, JUMP_WAIT_RANGE.y)
-	jump_timer.start()
+	super._ready()
+	start_timer()
 
 
 func _physics_process(delta):
@@ -27,9 +27,27 @@ func _physics_process(delta):
 		velocity.x = 0
 		animated_sprite_2d.play('idle')
 		
+	apply_jump()
 	move_and_slide()
+	flip_me()
 	
-		
+	
+func apply_jump() -> void: 
+	pass
+
+
+func flip_me() -> void: 
+	if(_player_ref.global_position.x > global_position.x and animated_sprite_2d.flip_h == false):
+		animated_sprite_2d.flip_h = true
+	elif(_player_ref.global_position.x < global_position.x and animated_sprite_2d.flip_h == true):
+		animated_sprite_2d.flip_h = false
+
+
+func start_timer() -> void:
+	jump_timer.wait_time = randf_range(JUMP_WAIT_RANGE.x, JUMP_WAIT_RANGE.y)
+	jump_timer.start()
+	
+	
 func _on_jump_timer_timeout():
 	_jump = true
 	
