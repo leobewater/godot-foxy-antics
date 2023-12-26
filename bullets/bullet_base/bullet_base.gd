@@ -10,7 +10,7 @@ func _ready():
 
 func _process(delta):
 	check_expired(delta)
-	position += _direction * delta
+	position += _direction * delta * 20
 	
 	
 func setup(dir: Vector2, life_span: float, speed: float) -> void:
