@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1kicnofeicgx"]
+[gd_scene load_steps=14 format=3 uid="uid://d1kicnofeicgx"]
 
 [ext_resource type="Texture2D" uid="uid://bqieeu41rb32r" path="res://assets/items/checkpoint.png" id="1_f4foj"]
 
@@ -16,6 +16,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [26]
 }
 
 [sub_resource type="Animation" id="Animation_lkbwr"]
@@ -109,6 +121,36 @@ _data = {
 "flag_open": SubResource("Animation_geyhw")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v2lla"]
+animation = &"appear"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xvmsm"]
+animation = &"flag_flap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_22c8x"]
+animation = &"flag_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uc7xi"]
+advance_mode = 2
+advance_condition = &"on_trigger"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_31a1w"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ju08e"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_go44a"]
+states/appear/node = SubResource("AnimationNodeAnimation_v2lla")
+states/appear/position = Vector2(348, 100)
+states/flag_flap/node = SubResource("AnimationNodeAnimation_xvmsm")
+states/flag_flap/position = Vector2(726, 100)
+states/flag_open/node = SubResource("AnimationNodeAnimation_22c8x")
+states/flag_open/position = Vector2(524, 100)
+transitions = ["Start", "appear", SubResource("AnimationNodeStateMachineTransition_uc7xi"), "appear", "flag_open", SubResource("AnimationNodeStateMachineTransition_31a1w"), "flag_open", "flag_flap", SubResource("AnimationNodeStateMachineTransition_ju08e")]
+
 [node name="Checkpoint" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -122,3 +164,11 @@ frame = 26
 libraries = {
 "": SubResource("AnimationLibrary_s1bpn")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s1bpn")
+}
+tree_root = SubResource("AnimationNodeStateMachine_go44a")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/on_trigger = false
