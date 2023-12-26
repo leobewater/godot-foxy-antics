@@ -83,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bxea"]
-size = Vector2(20, 9)
+size = Vector2(21, 9)
 
 [node name="Snail" instance=ExtResource("1_juyf2")]
 script = ExtResource("2_3bh8d")
@@ -99,5 +99,5 @@ position = Vector2(-15, 2.08165e-12)
 target_position = Vector2(2.08165e-12, 30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-position = Vector2(-1, 3.5)
+position = Vector2(1.5, 4)
 shape = SubResource("RectangleShape2D_6bxea")
