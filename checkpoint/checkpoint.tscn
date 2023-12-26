@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1kicnofeicgx"]
+[gd_scene load_steps=15 format=3 uid="uid://d1kicnofeicgx"]
 
 [ext_resource type="Texture2D" uid="uid://bqieeu41rb32r" path="res://assets/items/checkpoint.png" id="1_f4foj"]
 
@@ -151,9 +151,15 @@ states/flag_open/node = SubResource("AnimationNodeAnimation_22c8x")
 states/flag_open/position = Vector2(524, 100)
 transitions = ["Start", "appear", SubResource("AnimationNodeStateMachineTransition_uc7xi"), "appear", "flag_open", SubResource("AnimationNodeStateMachineTransition_31a1w"), "flag_open", "flag_flap", SubResource("AnimationNodeStateMachineTransition_ju08e")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_houn0"]
+size = Vector2(11.5, 47.5)
+
 [node name="Checkpoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12, -32)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_f4foj")
 hframes = 26
@@ -172,3 +178,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_go44a")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/on_trigger = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25, -24)
+shape = SubResource("RectangleShape2D_houn0")
