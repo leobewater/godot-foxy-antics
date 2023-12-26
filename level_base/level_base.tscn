@@ -519,6 +519,7 @@ texture = ExtResource("1_jpale")
 
 [sub_resource type="TileSet" id="TileSet_s4m5k"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_dkkex")
 
 [node name="LevelBase" type="Node2D"]
@@ -537,4 +538,4 @@ zoom = Vector2(2, 2)
 position = Vector2(575, -36)
 
 [node name="Snail" parent="." instance=ExtResource("5_ef5dn")]
-position = Vector2(605, -29)
+position = Vector2(608, -34)

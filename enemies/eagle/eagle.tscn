@@ -44,7 +44,6 @@ animations = [{
 radius = 6.08276
 
 [node name="Eagle" instance=ExtResource("1_g8ru3")]
-collision_layer = 0
 collision_mask = 0
 script = ExtResource("2_tmmbj")
 
