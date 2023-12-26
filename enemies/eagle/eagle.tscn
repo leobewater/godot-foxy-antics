@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx52pjqynsxmi"]
+[gd_scene load_steps=10 format=3 uid="uid://dx52pjqynsxmi"]
 
 [ext_resource type="PackedScene" uid="uid://tn164k3xtu6q" path="res://enemies/enemy_base/enemy_base.tscn" id="1_g8ru3"]
 [ext_resource type="Texture2D" uid="uid://cv43f82o7ghdf" path="res://assets/enemies/eagle/eagle-attack.png" id="2_aj8n6"]
+[ext_resource type="Script" path="res://enemies/eagle/eagle.gd" id="2_tmmbj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur0h3"]
 atlas = ExtResource("2_aj8n6")
@@ -45,14 +46,18 @@ radius = 6.08276
 [node name="Eagle" instance=ExtResource("1_g8ru3")]
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("2_tmmbj")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_fu1pk")
 animation = &"fly"
-autoplay = "fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_8nov0")
 
 [node name="PlayerDetector" type="RayCast2D" parent="." index="3"]
 target_position = Vector2(2.08165e-12, 200)
+
+[node name="DirectionTimer" type="Timer" parent="." index="4"]
+wait_time = 3.0
