@@ -26,6 +26,25 @@ func _physics_process(delta):
 
 
 func fallen_off() -> void:
-	# remove element after y position if greater than offset
+	# remove element after y position exceeds offset
 	if global_position.y > OFF_SCREEN_KILL_ME:
 		queue_free()
+
+
+func die():
+	if _dying:
+		return
+		
+	_dying = true
+	SignalManager.on_enemy_hit.emit(points, global_position)
+	set_physics_process(false)
+	hide()
+	queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	pass # Replace with function body.
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	pass # Replace with function body.
