@@ -33,7 +33,23 @@ func _physics_process(delta):
 	
 	
 func apply_jump() -> void: 
-	pass
+	if !is_on_floor() :
+		return
+		
+	if _seen_player == false or _jump == false:
+		return
+		
+	velocity = JUMP_VELOCITY
+	
+	# flip x direction
+	if animated_sprite_2d.flip_h == false:
+		velocity.x = velocity.x * -1
+		
+	# set _jump to false and wait for the next timer
+	_jump = false
+	
+	animated_sprite_2d.play('jump')
+	start_timer()
 
 
 func flip_me() -> void: 
