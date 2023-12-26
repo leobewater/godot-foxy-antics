@@ -119,4 +119,4 @@ func set_state(new_state: PLAYER_STATE) -> void:
 
 # when hit box collides with enemies
 func _on_hit_box_area_entered(area):
-	print("Player HitBox:", area)
+	print("Player HitBox hit by:", area)

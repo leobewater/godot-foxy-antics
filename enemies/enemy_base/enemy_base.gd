@@ -52,4 +52,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_hit_box_area_entered(area):
-	print("Enemy hit: ", area)
+	print("Enemy Hitbox hit by: ", area)
+	die()
