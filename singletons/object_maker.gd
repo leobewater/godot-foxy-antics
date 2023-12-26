@@ -14,6 +14,7 @@ func add_child_deferred(child_to_add) -> void:
 
 
 func call_add_child(child_to_add) -> void:
+	# call a function in the main thread when it is not doing anything or when it's idling for better performance 
 	call_deferred("add_child_deferred", child_to_add)
 
 
