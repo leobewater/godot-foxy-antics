@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3iuqkm7nbqeh"]
+
+[ext_resource type="Texture2D" uid="uid://gdop6r3g2udq" path="res://assets/danger/spiked_ball.png" id="1_6bbtv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m37ea"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_gg7sj"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ruthl"]
+_data = {
+"spin": SubResource("Animation_gg7sj")
+}
+
+[node name="BallSpikes" type="PathFollow2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_6bbtv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_m37ea")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+libraries = {
+"": SubResource("AnimationLibrary_ruthl")
+}
+autoplay = "spin"
