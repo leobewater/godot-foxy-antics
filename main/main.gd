@@ -5,6 +5,7 @@ extends CanvasLayer
 
 
 func _ready():
+	get_tree().paused = false
 	label_high_score.text = "Highscore: " + str(ScoreManager.get_high_score())
 
 
