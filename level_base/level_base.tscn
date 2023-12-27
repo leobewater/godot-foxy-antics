@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdmrwmjesfx8o"]
+[gd_scene load_steps=10 format=3 uid="uid://bdmrwmjesfx8o"]
 
 [ext_resource type="Script" path="res://level_base/level_base.gd" id="1_gjrkq"]
 [ext_resource type="Texture2D" uid="uid://bpiv1pl74okud" path="res://assets/tiles/Terrain (16x16).png" id="1_jpale"]
 [ext_resource type="PackedScene" uid="uid://cph6xskm1anvs" path="res://player_cam/player_cam.tscn" id="2_6wir8"]
 [ext_resource type="PackedScene" uid="uid://blvkdxh18qnmw" path="res://player/player.tscn" id="3_mxm1x"]
 [ext_resource type="PackedScene" uid="uid://cs8v5bmvfeadu" path="res://moving_platform/moving_platform.tscn" id="5_5780g"]
+[ext_resource type="PackedScene" uid="uid://d3iuqkm7nbqeh" path="res://ball_spikes/ball_spikes.tscn" id="6_hd1j4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dkkex"]
 texture = ExtResource("1_jpale")
@@ -554,6 +555,12 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_dkkex")
 
+[sub_resource type="Curve2D" id="Curve2D_b1a0b"]
+_data = {
+"points": PackedVector2Array(66.8826, 1.30644, -66.8826, -1.30644, 704, -58, -32.265, 15.6773, 32.265, -15.6773, 702, -194, -23.1905, -69.2413, 23.1905, 69.2413, 843, -196, 0, 0, 0, 0, 704, -58)
+}
+point_count = 4
+
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_gjrkq")
 
@@ -567,7 +574,7 @@ position = Vector2(256, -150)
 zoom = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("3_mxm1x")]
-position = Vector2(209, -35)
+position = Vector2(571, -34)
 
 [node name="MovingPlatform" parent="." node_paths=PackedStringArray("p1", "p2") instance=ExtResource("5_5780g")]
 position = Vector2(50, -40)
@@ -581,3 +588,14 @@ position = Vector2(50, -40)
 
 [node name="MP1_2" type="Marker2D" parent="Markers"]
 position = Vector2(50, -140)
+
+[node name="Paths" type="Node" parent="."]
+
+[node name="Spikes1" type="Path2D" parent="Paths"]
+position = Vector2(5.9787, 1.26088)
+scale = Vector2(0.992908, 1.02174)
+curve = SubResource("Curve2D_b1a0b")
+
+[node name="BallSpikes" parent="Paths/Spikes1" instance=ExtResource("6_hd1j4")]
+position = Vector2(704, -58)
+rotation = -3.12206
