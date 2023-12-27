@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb6m0igyhgcko"]
+
+[ext_resource type="LabelSettings" uid="uid://ltfl5ex1wvc0" path="res://assets/GL_48_White.tres" id="1_gjql7"]
+[ext_resource type="Texture2D" uid="uid://ugaqpnpkijla" path="res://assets/items/pixel heart 2.png" id="2_jenyn"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="MC"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ScoreLabel" type="Label" parent="MC/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0000"
+label_settings = ExtResource("1_gjql7")
+
+[node name="HBox" type="HBoxContainer" parent="MC/HBox"]
+layout_mode = 2
+
+[node name="L1" type="TextureRect" parent="MC/HBox/HBox"]
+layout_mode = 2
+texture = ExtResource("2_jenyn")
+stretch_mode = 5
+
+[node name="L2" type="TextureRect" parent="MC/HBox/HBox"]
+layout_mode = 2
+texture = ExtResource("2_jenyn")
+stretch_mode = 5
+
+[node name="L3" type="TextureRect" parent="MC/HBox/HBox"]
+layout_mode = 2
+texture = ExtResource("2_jenyn")
+stretch_mode = 5
+
+[node name="L4" type="TextureRect" parent="MC/HBox/HBox"]
+layout_mode = 2
+texture = ExtResource("2_jenyn")
+stretch_mode = 5
+
+[node name="L5" type="TextureRect" parent="MC/HBox/HBox"]
+layout_mode = 2
+texture = ExtResource("2_jenyn")
+stretch_mode = 5
