@@ -12,8 +12,12 @@ func _ready():
 
 
 func _process(delta):
-	pass
-
+	if vb_level_complete.visible:
+		if Input.is_action_just_pressed("jump"):
+			GameManager.load_next_level_scene()
+	if vb_game_over.visible:
+		if Input.is_action_just_pressed("jump"):
+			GameManager.load_main_scene()
 
 func show_hud() -> void:
 	Engine.time_scale = 0

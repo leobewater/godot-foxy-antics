@@ -27,10 +27,11 @@ enum PLAYER_STATE {	IDLE, RUN, JUMP, FALL, HURT }
 
 var _state = PLAYER_STATE.IDLE
 var _invincible: bool = false
+var _lives: int = 5
 
 
 func _ready():
-	pass # Replace with function body.
+	SignalManager.on_player_hit.emit(_lives)
 
 
 func _physics_process(delta):
@@ -49,9 +50,10 @@ func _physics_process(delta):
 
 
 func update_debug_label() -> void:
-	debug_label.text = "is_on_floor: %s\n_invincible: %s\n%s\n%.0f,%.0f" % [
+	debug_label.text = "is_on_floor: %s\n_invincible: %s\nlives: %s\n%s\n%.0f,%.0f" % [
 		is_on_floor(),
 		_invincible,
+		_lives,
 		PLAYER_STATE.keys()[_state],
 		velocity.x,
 		velocity.y
@@ -144,10 +146,23 @@ func go_invincible() -> void:
 	invincible_timer.start()
 
 
+func reduce_lives() -> bool:
+	_lives -= 1
+	SignalManager.on_player_hit.emit(_lives)
+	if _lives <= 0:
+		SignalManager.on_game_over.emit()
+		set_physics_process(false)
+		return false
+	return true
+	
+
 func apply_hit() -> void:
 	if _invincible == true:
 		return
-		
+	
+	if reduce_lives() == false:
+		return
+	
 	go_invincible()
 	set_state(PLAYER_STATE.HURT)
 	SoundManager.play_clip(sound_player, SoundManager.SOUND_DAMAGE)
