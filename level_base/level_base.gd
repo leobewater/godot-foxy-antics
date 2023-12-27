@@ -7,6 +7,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# use Engine.time_scale better and can also use tree paused
 	#Engine.time_scale = 1
 	get_tree().paused = false
 

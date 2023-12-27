@@ -7,6 +7,7 @@ const HIT_CONDITION: String = "parameters/conditions/on_hit"
 
 @onready var animation_tree = $AnimationTree
 @onready var visual = $Visual
+@onready var hit_box = $Visual/HitBox
 
 
 @export var lives: int = 2
@@ -64,6 +65,9 @@ func _on_trigger_area_entered(area):
 	if animation_tree[TRIGGER_CONDITION] == false:
 		animation_tree[TRIGGER_CONDITION] = true
 		_has_triggered = true
+		# add enemy_hit layer manually after boss appeared/triggered by player
+		hit_box.collision_layer = 4
+
 
 # when boss hitbox is collided
 func _on_hit_box_area_entered(area):
