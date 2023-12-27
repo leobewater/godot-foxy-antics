@@ -34,7 +34,7 @@ size_flags_vertical = 0
 [node name="ScoreLabel" type="Label" parent="MC/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "0000"
+text = "00000"
 label_settings = ExtResource("1_gjql7")
 vertical_alignment = 1
 

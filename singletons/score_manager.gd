@@ -23,6 +23,7 @@ func update_score(points: int) -> void:
 	if _high_score < _score:
 		_high_score = _score
 	print("update_score:", _score)
+	SignalManager.on_score_updated.emit()
 
 
 func get_score() -> int:
