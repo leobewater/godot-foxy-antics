@@ -17,11 +17,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameManager="*res://singletons/game_manager.gd"
 SignalManager="*res://singletons/signal_manager.gd"
+ScoreManager="*res://singletons/score_manager.gd"
+GameManager="*res://singletons/game_manager.gd"
 SoundManager="*res://singletons/sound_manager.gd"
 ObjectMaker="*res://singletons/object_maker.gd"
-ScoreManager="*res://singletons/score_manager.gd"
 
 [display]
 

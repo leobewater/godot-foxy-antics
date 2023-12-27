@@ -12,6 +12,7 @@ var _level_scenes = {}
 
 func _ready():
 	init_level_scenes()
+	ScoreManager.reset_score()
 	
 
 # load all scenes into _level_scenes dictionary
@@ -22,6 +23,7 @@ func init_level_scenes() -> void:
 
 func load_main_scene() -> void:
 	_current_level = 0
+	ScoreManager.reset_score()
 	get_tree().change_scene_to_packed(MAIN_SCENE)
 
 
