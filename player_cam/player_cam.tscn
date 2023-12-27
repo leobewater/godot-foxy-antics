@@ -3,6 +3,10 @@
 [ext_resource type="Script" path="res://player_cam/player_cam.gd" id="1_2bddi"]
 
 [node name="PlayerCam" type="Camera2D"]
+limit_left = -500
+limit_top = -500
+limit_right = 500
+limit_bottom = 0
 script = ExtResource("1_2bddi")
 
 [node name="ShakeTimer" type="Timer" parent="."]
