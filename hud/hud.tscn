@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb6m0igyhgcko"]
+[gd_scene load_steps=5 format=3 uid="uid://bb6m0igyhgcko"]
 
 [ext_resource type="LabelSettings" uid="uid://ltfl5ex1wvc0" path="res://assets/GL_48_White.tres" id="1_gjql7"]
 [ext_resource type="Texture2D" uid="uid://ugaqpnpkijla" path="res://assets/items/pixel heart 2.png" id="2_jenyn"]
+[ext_resource type="LabelSettings" uid="uid://crir1ufm6vpip" path="res://assets/LG_64_Title.tres" id="3_4sd21"]
+[ext_resource type="LabelSettings" uid="uid://og1n1yypqcdy" path="res://assets/LG_24_Subtitle.tres" id="4_kk84u"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -18,6 +20,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="HBox" type="HBoxContainer" parent="MC"]
 layout_mode = 2
@@ -28,6 +34,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "0000"
 label_settings = ExtResource("1_gjql7")
+vertical_alignment = 1
 
 [node name="HBox" type="HBoxContainer" parent="MC/HBox"]
 layout_mode = 2
@@ -56,3 +63,71 @@ stretch_mode = 5
 layout_mode = 2
 texture = ExtResource("2_jenyn")
 stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.00392157, 0.0980392, 0.752941)
+
+[node name="VB_LevelComplete" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VB_LevelComplete"]
+layout_mode = 2
+text = "LEVEL COMPLETE!"
+label_settings = ExtResource("3_4sd21")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/VB_LevelComplete"]
+layout_mode = 2
+text = "Press Jump For Next Level"
+label_settings = ExtResource("4_kk84u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VB_GameOver" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VB_GameOver"]
+layout_mode = 2
+text = "GAME OVER!"
+label_settings = ExtResource("3_4sd21")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/VB_GameOver"]
+layout_mode = 2
+text = "Press Jump For Main Menu"
+label_settings = ExtResource("4_kk84u")
+horizontal_alignment = 1
+vertical_alignment = 1
