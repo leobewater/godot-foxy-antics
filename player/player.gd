@@ -12,6 +12,7 @@ class_name Player
 @onready var animation_player_invincible = $AnimationPlayerInvincible
 @onready var invincible_timer = $InvincibleTimer
 @onready var hurt_timer = $HurtTimer
+@onready var hit_box = $HitBox
 
 
 const GRAVITY: float = 1000.0
@@ -180,6 +181,16 @@ func apply_hit() -> void:
 	SoundManager.play_clip(sound_player, SoundManager.SOUND_DAMAGE)
 
 
+# after standing on the floor spike and taken the first hit, the 2nd hit doesn't automatically applied
+func retake_damage() -> void:
+	for area in hit_box.get_overlapping_areas():
+		# tag "Dangers" to floor spike
+		if area.is_in_group("Dangers") == true:
+			apply_hit()
+			break
+	return
+
+
 # when hit box collides with enemies or enemy bullets
 func _on_hit_box_area_entered(area):
 	print("Player HitBox hit by:", area)
@@ -189,6 +200,7 @@ func _on_hit_box_area_entered(area):
 func _on_invincible_timer_timeout():
 	_invincible = false
 	animation_player_invincible.stop()
+	retake_damage()
 
 
 func _on_hurt_timer_timeout():

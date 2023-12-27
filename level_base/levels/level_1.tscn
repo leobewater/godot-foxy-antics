@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvy6043jaqci4"]
+[gd_scene load_steps=4 format=3 uid="uid://dvy6043jaqci4"]
 
 [ext_resource type="PackedScene" uid="uid://bdmrwmjesfx8o" path="res://level_base/level_base.tscn" id="1_00uv8"]
 [ext_resource type="PackedScene" uid="uid://dg38qoh7ar5f1" path="res://enemies/snail/snail.tscn" id="2_033e7"]
+[ext_resource type="PackedScene" uid="uid://bsf02sqffb5bn" path="res://floor_spike/floor_spikes.tscn" id="3_2o8dr"]
 
 [node name="Level_1" instance=ExtResource("1_00uv8")]
 
 [node name="Snail" parent="." index="10" instance=ExtResource("2_033e7")]
 position = Vector2(589, -26)
+
+[node name="FloorSpikes" parent="." index="11" instance=ExtResource("3_2o8dr")]
+position = Vector2(177, -15)
