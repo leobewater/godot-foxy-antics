@@ -22,6 +22,7 @@ func update_score(points: int) -> void:
 	_score += points
 	if _high_score < _score:
 		_high_score = _score
+	print("update_score:", _score)
 
 
 func get_score() -> int:
