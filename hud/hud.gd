@@ -16,6 +16,7 @@ func _ready():
 	SignalManager.on_game_over.connect(on_game_over)
 	SignalManager.on_player_hit.connect(on_player_hit)
 	SignalManager.on_score_updated.connect(on_score_updated)
+	on_score_updated()
 
 
 func _process(delta):
