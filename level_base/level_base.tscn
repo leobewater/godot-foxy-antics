@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdmrwmjesfx8o"]
+[gd_scene load_steps=19 format=3 uid="uid://bdmrwmjesfx8o"]
 
 [ext_resource type="Script" path="res://level_base/level_base.gd" id="1_gjrkq"]
 [ext_resource type="Texture2D" uid="uid://bpiv1pl74okud" path="res://assets/tiles/Terrain (16x16).png" id="1_jpale"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d11nel78i1xbr" path="res://assets/backgrounds/game_background_1/layers/rocks_1.png" id="9_3qm1v"]
 [ext_resource type="Texture2D" uid="uid://d2df41c1w0bk4" path="res://assets/backgrounds/game_background_1/layers/clouds_1.png" id="9_dssnx"]
 [ext_resource type="Texture2D" uid="uid://cufemg75litus" path="res://assets/backgrounds/game_background_1/layers/rocks_2.png" id="9_l1q1r"]
+[ext_resource type="PackedScene" uid="uid://bv440amklwsai" path="res://scrolling_bg/scrolling_bg.tscn" id="9_qa6tp"]
 [ext_resource type="Texture2D" uid="uid://b0op0qbjfcgic" path="res://assets/backgrounds/game_background_1/layers/clouds_2.png" id="10_2ooeh"]
 [ext_resource type="Texture2D" uid="uid://ytu3nwnfhp84" path="res://assets/backgrounds/game_background_1/layers/clouds_3.png" id="11_qcbft"]
 [ext_resource type="Texture2D" uid="uid://p6l43d6cq1fj" path="res://assets/backgrounds/game_background_1/layers/clouds_4.png" id="12_a2vbv"]
@@ -636,6 +637,8 @@ motion_mirroring = Vector2(1440, 0)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("9_l1q1r")
 offset = Vector2(0, -540)
+
+[node name="ScrollingBg" parent="." instance=ExtResource("9_qa6tp")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_s4m5k")

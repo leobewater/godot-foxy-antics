@@ -45,7 +45,7 @@ var BG_FILES = {
 @export_range(1, 4) var level_number: int
 @export var mirror_x: float = 1440.0
 @export var sprite_offset: Vector2 = Vector2(0, -540)
-@export var sprite_scale: Vector2 = Vector2(0.75, 075)
+@export var sprite_scale: Vector2 = Vector2(0.75, 0.75)
 
 
 func _ready():
