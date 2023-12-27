@@ -1,8 +1,12 @@
 extends CanvasLayer
 
 
+@onready var label_high_score = $VBoxContainer/LabelHighScore
+
+
 func _ready():
 	Engine.time_scale = 1
+	label_high_score.text = "Highscore: " + str(ScoreManager.get_high_score())
 
 
 # load level 1
