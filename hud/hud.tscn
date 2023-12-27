@@ -38,30 +38,30 @@ text = "0000"
 label_settings = ExtResource("1_gjql7")
 vertical_alignment = 1
 
-[node name="HBox" type="HBoxContainer" parent="MC/HBox"]
+[node name="HB_Hearts" type="HBoxContainer" parent="MC/HBox"]
 layout_mode = 2
 
-[node name="L1" type="TextureRect" parent="MC/HBox/HBox"]
-layout_mode = 2
-texture = ExtResource("2_jenyn")
-stretch_mode = 5
-
-[node name="L2" type="TextureRect" parent="MC/HBox/HBox"]
+[node name="L1" type="TextureRect" parent="MC/HBox/HB_Hearts"]
 layout_mode = 2
 texture = ExtResource("2_jenyn")
 stretch_mode = 5
 
-[node name="L3" type="TextureRect" parent="MC/HBox/HBox"]
+[node name="L2" type="TextureRect" parent="MC/HBox/HB_Hearts"]
 layout_mode = 2
 texture = ExtResource("2_jenyn")
 stretch_mode = 5
 
-[node name="L4" type="TextureRect" parent="MC/HBox/HBox"]
+[node name="L3" type="TextureRect" parent="MC/HBox/HB_Hearts"]
 layout_mode = 2
 texture = ExtResource("2_jenyn")
 stretch_mode = 5
 
-[node name="L5" type="TextureRect" parent="MC/HBox/HBox"]
+[node name="L4" type="TextureRect" parent="MC/HBox/HB_Hearts"]
+layout_mode = 2
+texture = ExtResource("2_jenyn")
+stretch_mode = 5
+
+[node name="L5" type="TextureRect" parent="MC/HBox/HB_Hearts"]
 layout_mode = 2
 texture = ExtResource("2_jenyn")
 stretch_mode = 5

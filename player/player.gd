@@ -136,7 +136,6 @@ func apply_hurt_jump() -> void:
 	animation_player.play('hurt')
 	velocity = HURT_JUMP_VELOCITY
 	hurt_timer.start()
-	SignalManager.on_player_hit.emit(0)
 
 
 # player becoming invincible for X seconds after hit by enemies
