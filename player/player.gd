@@ -15,6 +15,7 @@ class_name Player
 
 
 const GRAVITY: float = 1000.0
+const FALLEN_OFF: float = 100.0
 const RUN_SPEED: float = 120.0
 const MAX_FALL: float = 400.0
 const HURT_TIME: float = 0.3
@@ -35,6 +36,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	# check if player fallen off the ground
+	fallen_off()
+	
 	# apply gravity to player when it's not on the floor
 	if is_on_floor() == false:
 		velocity.y += GRAVITY * delta
@@ -58,6 +62,15 @@ func update_debug_label() -> void:
 		velocity.x,
 		velocity.y
 	]
+	
+
+func fallen_off() -> void:
+	if global_position.y < FALLEN_OFF:
+		return
+	
+	# set lives to 1 and reduce it to zero
+	_lives = 1;
+	reduce_lives()
 	
 	
 func shoot() -> void:
