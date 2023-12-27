@@ -27,5 +27,6 @@ func check_expired(delta: float) -> void:
 
 
 # when bullet hits enemy/player hitbox based on the mask setting then remove itself
-func _on_area_entered(area):
+func _on_area_entered(_area):
+	print("bullet are entered by ", _area)
 	queue_free()

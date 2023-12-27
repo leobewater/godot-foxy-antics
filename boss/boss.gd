@@ -14,6 +14,7 @@ const HIT_CONDITION: String = "parameters/conditions/on_hit"
 
 
 var _invincible: bool = false
+var _has_triggered: bool = false
 
 
 func _ready():
@@ -47,6 +48,9 @@ func set_invincible(v: bool) -> void:
 
 
 func take_damage() -> void:
+	if _has_triggered == false:
+		return
+	
 	if _invincible == true:
 		return
 		
@@ -59,7 +63,7 @@ func take_damage() -> void:
 func _on_trigger_area_entered(area):
 	if animation_tree[TRIGGER_CONDITION] == false:
 		animation_tree[TRIGGER_CONDITION] = true
-
+		_has_triggered = true
 
 # when boss hitbox is collided
 func _on_hit_box_area_entered(area):
