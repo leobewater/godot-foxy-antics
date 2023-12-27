@@ -4,3 +4,4 @@
 
 [node name="ScrollingBg" type="ParallaxBackground"]
 script = ExtResource("1_4qg2o")
+level_number = 1
